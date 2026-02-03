@@ -1,0 +1,12 @@
+## Interface: 11200
+## Title: VanillaHelper
+## Notes: 
+## Author: Thomas Laurenson
+## DefaultState: enabled
+## SavedVariables: SavedVars
+
+
+PrintHelper.lua
+ReloadUI.lua
+WhichFrame.lua
+DumpGlobals.lua
