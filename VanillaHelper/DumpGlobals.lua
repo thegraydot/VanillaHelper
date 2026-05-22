@@ -1,20 +1,18 @@
+-- VanillaHelper: /dump and /dumpglobals scan the global environment and record
+-- all function-typed globals into SavedVars for offline inspection.
+-- _G is assigned explicitly because vanilla 1.12 does not guarantee it exists.
+local _G = getfenv(0)
+SavedVars = {}
+
 SLASH_DumpGlobals1 = "/dumpglobals"
 SLASH_DumpGlobals2 = "/dump"
 
-local _G, _M = getfenv(0), {}
-SavedVars = {};
-
-SlashCmdList["DumpGlobals"] = function(msg, editbox)
+SlashCmdList["DumpGlobals"] = function()
     print("START")
-    for k,v in pairs(_G) do
-        -- print(type(v))
+    for k, v in pairs(_G) do
         if type(v) == "function" then
             SavedVars[k] = v
         end
-            -- print("TABLE", k)
-        -- print("KEY", k)
-        -- print("VALUE" v)
-            
     end
     print("FINISHED")
 end
